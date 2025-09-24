@@ -1,15 +1,20 @@
-import {Home} from '../screens/Home';
-import {Gallery} from '../screens/Gallery';
-import {Tela2} from '../screens/Tela2';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-const {Navigator, Screen} = createStackNavigator();
+
+import { Home } from '../screens/Home';
+import { Avioes } from '../screens/Avioes';
+import { TiposAvioes } from '../screens/TiposAvioes';
+import { Curiosidades } from '../screens/Curiosidades';
+
+const Stack = createStackNavigator();
 
 export function StackRoutes() {
   return (
-   <Navigator screenOptions={{headerShown:false}}>
-    <Screen name='home' component={Home}></Screen>
-    <Screen name='gallery' component={Gallery}></Screen>
-    <Screen name='tela2' component={Tela2}></Screen>
-   </Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Avioes" component={Avioes} />
+      <Stack.Screen name="TiposAvioes" component={TiposAvioes} />
+      <Stack.Screen name="Curiosidades" component={Curiosidades} />
+    </Stack.Navigator>
   );
 }

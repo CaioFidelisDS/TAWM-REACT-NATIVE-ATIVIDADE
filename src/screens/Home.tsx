@@ -1,25 +1,32 @@
 import React from 'react';
-import { Pressable, View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
+import styles from './HomeStyle';
 
-import { styles } from './HomeStyle';
-
-export function Home({navigation}:any) {
-
-  function navToGallery(){
-    navigation.navigate('gallery');
+export function Home({ navigation }: any) {
+  function navToAvioes() {
+    navigation.navigate('Avioes');
   }
-  function navToTela2(){
-    navigation.navigate('Tela2');
+  function navToTipos() {
+    navigation.navigate('TiposAvioes');
+  }
+  function navToCuriosidades() {
+    navigation.navigate('Curiosidades');
   }
   return (
     <View style={styles.container}>
-      <Text>HOME</Text>
-        <Pressable style={styles.botao} onPress={navToGallery}>
-            <Text style={styles.textoBotao}>Ir para a Galleria</Text>
-        </Pressable>
-        <Pressable style={styles.botao} onPress={navToTela2}>
-            <Text style={styles.textoBotao}>Ir para Tela 2</Text>
-        </Pressable>
+      <Text style={styles.titulo}>App de Aviões</Text>
+      <Text style={styles.descricao}>
+        Descubra tudo sobre aviões, tipos e curiosidades!
+      </Text>
+      <Pressable style={styles.botao} onPress={navToAvioes}>
+        <Text style={styles.textoBotao}>Sobre Aviões</Text>
+      </Pressable>
+      <Pressable style={styles.botao} onPress={navToTipos}>
+        <Text style={styles.textoBotao}>Tipos de Aviões</Text>
+      </Pressable>
+      <Pressable style={styles.botao} onPress={navToCuriosidades}>
+        <Text style={styles.textoBotao}>Curiosidades</Text>
+      </Pressable>
     </View>
   );
 }
