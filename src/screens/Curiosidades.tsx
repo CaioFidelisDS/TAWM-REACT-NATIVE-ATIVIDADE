@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 import styles from './CuriosidadesStyle';
 
 export function Curiosidades({ navigation }: any) {
@@ -9,7 +9,14 @@ export function Curiosidades({ navigation }: any) {
       <Text style={styles.descricao}>
         O maior avião de passageiros é o Airbus A380. O primeiro voo controlado foi em 1903 pelos irmãos Wright.
       </Text>
-      <Pressable style={styles.botao} onPress={() => navigation.goBack()}>
+
+      <Pressable
+        style={({ pressed }) => [
+          styles.botao,
+          { backgroundColor: pressed ? '#512da8' : '#673ab7', transform: pressed ? [{ scale: 0.95 }] : [{ scale: 1 }] }
+        ]}
+        onPress={() => navigation.goBack()}
+      >
         <Text style={styles.textoBotao}>Voltar</Text>
       </Pressable>
     </View>

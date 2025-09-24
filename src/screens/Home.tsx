@@ -3,28 +3,40 @@ import { View, Text, Pressable } from 'react-native';
 import styles from './HomeStyle';
 
 export function Home({ navigation }: any) {
-  function navToAvioes() {
-    navigation.navigate('Avioes');
-  }
-  function navToTipos() {
-    navigation.navigate('TiposAvioes');
-  }
-  function navToCuriosidades() {
-    navigation.navigate('Curiosidades');
-  }
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>App de Aviões</Text>
+      <Text style={styles.titulo}>Aplicativo sobre Aviões</Text>
       <Text style={styles.descricao}>
         Descubra tudo sobre aviões, tipos e curiosidades!
       </Text>
-      <Pressable style={styles.botao} onPress={navToAvioes}>
+
+      <Pressable
+        style={({ pressed }) => [
+          styles.botao,
+          { backgroundColor: pressed ? '#0277bd' : '#039be5', transform: pressed ? [{ scale: 0.95 }] : [{ scale: 1 }] }
+        ]}
+        onPress={() => navigation.navigate('Avioes')}
+      >
         <Text style={styles.textoBotao}>Sobre Aviões</Text>
       </Pressable>
-      <Pressable style={styles.botao} onPress={navToTipos}>
+
+      <Pressable
+        style={({ pressed }) => [
+          styles.botao,
+          { backgroundColor: pressed ? '#0277bd' : '#039be5', transform: pressed ? [{ scale: 0.95 }] : [{ scale: 1 }] }
+        ]}
+        onPress={() => navigation.navigate('TiposAvioes')}
+      >
         <Text style={styles.textoBotao}>Tipos de Aviões</Text>
       </Pressable>
-      <Pressable style={styles.botao} onPress={navToCuriosidades}>
+
+      <Pressable
+        style={({ pressed }) => [
+          styles.botao,
+          { backgroundColor: pressed ? '#0277bd' : '#039be5', transform: pressed ? [{ scale: 0.95 }] : [{ scale: 1 }] }
+        ]}
+        onPress={() => navigation.navigate('Curiosidades')}
+      >
         <Text style={styles.textoBotao}>Curiosidades</Text>
       </Pressable>
     </View>
